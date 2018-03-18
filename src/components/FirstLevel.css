@@ -1,0 +1,26 @@
+.card {
+    background-color: aquamarine;
+    text-align: center;
+    width: 30%;
+    margin: 5px;
+    padding: 5px;
+}
+
+.innerCard {
+    background-color: goldenrod;
+    border-color: dimgrey;
+    border-radius: 3px;
+    border-width: 1pt;
+    margin-left: 30px;
+    width: fit-content;
+}
+
+.innerInnerCard {
+    background-color: greenyellow;
+    border-color: dimgrey;
+    border-radius: 3px;
+    border-width: 1pt;
+    margin-left: 15px;
+    padding-left: 10px;
+    width: fit-content;
+}
