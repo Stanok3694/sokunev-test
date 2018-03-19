@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { PersonalInfo } from "../components/personalInfo";
 
 class HierarchyView extends Component {
     constructor(props) {
@@ -7,19 +8,23 @@ class HierarchyView extends Component {
 
     render() {
         return (
-            <ul>
+            <ol>
                 {
                     this.props.data.map(d => {
                         return(
                             <div>
-                                <li>{d.name}</li>
-                                <li>{d.surname}</li>
+                                <li>
+                                    <PersonalInfo 
+                                        name = {d.name}
+                                        surname = {d.surname}
+                                    />
+                                </li>
                                 { d.specialData ? <HierarchyView data = {d.specialData} /> : null }
                             </div>
                         )
                     })
                 }
-            </ul>
+            </ol>
         )
     }
 }

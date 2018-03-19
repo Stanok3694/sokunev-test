@@ -1,41 +1,14 @@
 import React, { Component } from 'react';
-import { HierarchyView } from "./components";
+import { HierarchyView } from "./views";
+
+import { MockData } from './mocks';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: [
-        {
-          name: "blabla",
-          surname: "fafa",
-          specialData: [
-            {
-              name: "blabla",
-              surname: "fafa",
-              specialData: [
-                {
-                  name: "blabla",
-                  surname: "fafa",
-                }
-              ]
-            },
-            {
-              name: "blabla",
-              surname: "fafa",
-            },
-          ]
-        },
-        {
-          name: "blabla",
-          surname: "fafa"
-        },
-        {
-          name: "blabla",
-          surname: "fafa",
-        }
-      ],
+      data: MockData,
     };
   }
 
