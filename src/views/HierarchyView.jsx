@@ -14,6 +14,7 @@ class HierarchyView extends Component {
                         return(
                             <div>
                                 <li>
+                                    {/* SO: should this compoent be wraped in HOC? think and implement if appicable */}
                                     <PersonalInfo 
                                         name = {d.name}
                                         surname = {d.surname}
