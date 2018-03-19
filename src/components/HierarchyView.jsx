@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./HierarchyView.css";
 
 class HierarchyView extends Component {
     constructor(props) {
