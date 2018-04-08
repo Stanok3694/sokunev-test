@@ -1,33 +1,24 @@
-import React, { Component } from "react";
-import { PersonalInfo } from "../components/personalInfo";
+import React from "react";
+import { Card } from "../components/PersonalCard";
 
-class HierarchyView extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <ol>
-                {
-                    this.props.data.map(d => {
-                        return(
-                            <div>
-                                <li>
-                                    {/* SO: should this compoent be wraped in HOC? think and implement if appicable */}
-                                    <PersonalInfo 
-                                        name = {d.name}
-                                        surname = {d.surname}
-                                    />
-                                </li>
-                                { d.specialData ? <HierarchyView data = {d.specialData} /> : null }
-                            </div>
-                        )
-                    })
-                }
-            </ol>
-        )
-    }
-}
+const HierarchyView = (props) => (
+    <ol>
+        {
+            props.data.map(d => {
+                return (
+                    <div>
+                        <li>
+                            <Card
+                                name={d.name}
+                                surname={d.surname}
+                            />
+                        </li>
+                        {d.specialData ? <HierarchyView data={d.specialData} /> : null}
+                    </div>
+                )
+            })
+        }
+    </ol>
+);
 
 export default HierarchyView;

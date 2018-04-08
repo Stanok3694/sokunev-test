@@ -1,7 +1,7 @@
 import React from "react";
-import "./PersonalInfo.css";
+import "./Card.style.css";
 
-const PersonalInfo = (props) => {
+const Card = (props) => {
     return (
         <div className="card">
             <p>{props.name}</p>
@@ -10,4 +10,4 @@ const PersonalInfo = (props) => {
     );
 };
 
-export default PersonalInfo;
+export default Card;
