@@ -6,7 +6,7 @@ const FindElementByIdWithCallback = (id, treeElements, callback) => {
         }
 
         if (element.subchilds) {
-            FindElementById(id, element.subchilds, callback);
+            FindElementByIdWithCallback(id, element.subchilds, callback);
         }
     });
 }

@@ -1,21 +1,26 @@
 import uuidv1 from "uuid";
+import { FindElementByIdWithCallback } from "./";
 
-const EditTreeService = () => {
-    function AddNewElement (treeElements) {
+class EditTree {
+    AddNewElement (treeElements) {
         return 'hello, add';
     }
 
-    function EditElementById (id, treeElements) {
-        return 'hello, edit';
+    EditElementById (id, treeElements, updatedElem) {
+        FindElementByIdWithCallback(id, treeElements, function (target) {
+            console.log('target ' + target.name);
+            console.log('updatedElem ' + updatedElem.name);
+            target.name = updatedElem.name;
+            target.surname = updatedElem.surname;
+        });
+
+        console.log(treeElements);
     }
 
-    function DeleteElementById (id, treeElements) {
+    DeleteElementById (id, treeElements) {
         return 'hello, delete';
     }
-
-    return Object.freeze({
-        AddNewElement: AddNewElement(treeElements),
-        EditElementById: EditElementById(id, treeElements),
-        DeleteElementById: DeleteElementById(id, treeElements),
-    });
 }
+
+const EditTreeService = new EditTree();
+export default EditTreeService;
