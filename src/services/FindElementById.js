@@ -1,17 +1,15 @@
-const FindElementById = (id, treeElements, callback) => {	
-	treeElements.forEach(element => {
-        // console.log(element);
-        
-        if (element.id === id) {
-            // console.log(callback);
-            return callback(element);
-        }
+const FindElementById = (id, treeElements) => {
+    let result = 'no element';
 
-        if (element.subchilds) {
-            // console.log('go recursive');
-            FindElementById(id, element.subchilds, callback);
+    for (let i = 0; i < treeElements.length; i++) {
+        if (treeElements[i].id === id) {
+            result = treeElements[i];
+        } else if (treeElements[i].subchilds) {
+            result = FindElementById(id, treeElements[i].subchilds);
         }
-    });
+    }
+
+    return result;
 }
 
 export default FindElementById;

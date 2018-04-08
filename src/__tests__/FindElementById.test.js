@@ -37,32 +37,17 @@ const foundElementInNestedArray = {
 
 describe('Find element by id: ', () => {
     it('should return element in flatten array', () => {
-        let result = null;
-        
-        FindElementById(5, mockedArray, (target) => {
-            result = target;    
-        });
-
+        const result = FindElementById(5, mockedArray);
         expect(result).toEqual(foundElementInFlattenArray);
     });
 
     it('should return element in nested array', () => {
-        let result = null;
-        
-        FindElementById(3, mockedArray, (target) => {
-            result = target;    
-        });
-
+        const result = FindElementById(3, mockedArray);
         expect(result).toEqual(foundElementInNestedArray);
     });
 
     it('should not return element', () => {
-        let result = null;
-        
-        FindElementById(6, mockedArray, (target) => {
-            result = target;    
-        });
-
-        expect(result).toEqual(null);
+        const result = FindElementById(6, mockedArray);
+        expect(result).toEqual('no element');
     });
 });
