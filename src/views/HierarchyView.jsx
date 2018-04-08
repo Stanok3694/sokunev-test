@@ -6,14 +6,14 @@ const HierarchyView = (props) => (
         {
             props.data.map(d => {
                 return (
-                    <div>
+                    <div key = {d.id}>
                         <li>
                             <Card
                                 name={d.name}
                                 surname={d.surname}
                             />
                         </li>
-                        {d.specialData ? <HierarchyView data={d.specialData} /> : null}
+                        {d.subchilds ? <HierarchyView data={d.subchilds} /> : null}
                     </div>
                 )
             })
