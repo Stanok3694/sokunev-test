@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import uuidv1 from "uuid";
 import { HierarchyView } from "./views";
-
 import { MockData } from './mocks';
 import { EditTreeService, CreateMockedElement } from "./services";
 import { CustomActionButtom } from "./components/UI";
@@ -21,6 +21,17 @@ class App extends Component {
     this.setState({ data: newTree });
   }
 
+  handleEditClick = (id) => {
+    const newElemValue = {
+      name: uuidv1(),
+      surname: uuidv1(),
+    };
+
+    const newTree = EditTreeService.EditElementById(this.state.data, newElemValue, id);
+    
+    this.setState({ data: newTree });
+  }
+
   render() {
     return (
       <div>
@@ -34,6 +45,7 @@ class App extends Component {
         <HierarchyView 
           data = {this.state.data} 
           addClick = {this.handleAddClick}
+          editClick = {this.handleEditClick}
         />
       </div>
     )

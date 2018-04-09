@@ -10,7 +10,12 @@ const Card = (props) => {
             
             <CustomActionButtom
                 name = 'Добавить'
-                handleClick = {props.handleClick.bind(this, props.id)}
+                handleClick = {props.handleAddClick.bind(this, props.id)}
+            />
+
+            <CustomActionButtom
+                name = 'Изменить'
+                handleClick = {props.handleEditClick.bind(this, props.id)}
             />
         </div>
     );

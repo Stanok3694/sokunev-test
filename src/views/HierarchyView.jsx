@@ -12,12 +12,18 @@ const HierarchyView = (props) => (
                                 id={d.id}
                                 name={d.name}
                                 surname={d.surname}
-                                handleClick={props.addClick}
+                                handleAddClick={props.addClick}
+                                handleEditClick={props.editClick}
                             />
                         </li>
                         {
                             d.subchilds
-                                ? <HierarchyView data={d.subchilds} addClick={props.addClick} />
+                                ? (
+                                    <HierarchyView 
+                                        data={d.subchilds}
+                                        addClick={props.addClick}
+                                        editClick={props.editClick}
+                                    />)
                                 : null
                         }
                     </div>
