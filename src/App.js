@@ -3,6 +3,7 @@ import { HierarchyView } from "./views";
 
 import { MockData } from './mocks';
 import { EditTreeService, CreateMockedElement } from "./services";
+import { CustomActionButtom } from "./components/UI";
 
 class App extends Component {
   constructor(props) {
@@ -25,9 +26,10 @@ class App extends Component {
       <div>
         <h1>Tree view</h1>
         
-        <button onClick={this.handleAddClick.bind(this, null)}>
-          {'добавить'}
-        </button>
+        <CustomActionButtom
+          name='Добавить'
+          handleClick={this.handleAddClick.bind(this, null)}
+        />
         
         <HierarchyView 
           data = {this.state.data} 

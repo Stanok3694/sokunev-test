@@ -1,4 +1,5 @@
 import React from "react";
+import { CustomActionButtom } from "../UI";
 import "./Card.style.css";
 
 const Card = (props) => {
@@ -6,10 +7,11 @@ const Card = (props) => {
         <div className="card">
             <p>{props.name}</p>
             <p>{props.surname}</p>
-            <p>{`id = ${props.id}`}</p>
-            <button onClick = {props.handleClick.bind(this, props.id)}>
-                {'добавить'}
-            </button>
+            
+            <CustomActionButtom
+                name = 'Добавить'
+                handleClick = {props.handleClick.bind(this, props.id)}
+            />
         </div>
     );
 };
