@@ -17,6 +17,11 @@ const Card = (props) => {
                 name = 'Изменить'
                 handleClick = {props.handleEditClick.bind(this, props.id)}
             />
+
+            <CustomActionButtom
+                name = 'Удалить'
+                handleClick = {props.handleDeleteClick.bind(this, props.id)}
+            />
         </div>
     );
 };
