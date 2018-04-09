@@ -17,7 +17,11 @@ class EditTree {
     }
 
     EditElementById(treeElements, values, id) {
-        return 'hello, edit';
+        let targetElement = FindElementById(id, treeElements);
+
+        Object.keys(values).forEach(key => targetElement[key] = values[key]);
+
+        return treeElements;
     }
 
     DeleteElementById(id, treeElements) {

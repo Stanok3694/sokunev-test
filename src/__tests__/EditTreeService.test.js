@@ -1,10 +1,17 @@
 import { EditTreeService, CreateMockedElement, FindElementById } from "../services";
-import { MockData, MockWithDeletedElement, MockWithDeletedNestedElement } from "../mocks";
+import { 
+    MockData, 
+    MockWithDeletedElement, MockWithDeletedNestedElement,
+    MockWithUpdatedElement, MockWithUpdatedNestedElement,
+} from "../mocks";
 
 // SO: collections
 const initialData = MockData;
 const withDeletedNestedElement = MockWithDeletedNestedElement;
 const withDeletedElement = MockWithDeletedElement;
+const withUpdatedElement = MockWithUpdatedElement;
+const withUpdatedNestedElement = MockWithUpdatedNestedElement;
+
 // SO: elems
 const newElem = {
     id: 6,
@@ -16,6 +23,10 @@ const newNestedElem = {
     name: "name-2",
     surname: "surname-2",
 };
+const updatedElem = {
+    name: 'its name rly updated',
+    surname: 'its surname rly updated',
+}
 
 describe('EditTree: ', () => {
     it.skip('should add new elem', () => {
@@ -38,7 +49,13 @@ describe('EditTree: ', () => {
         expect(newData).toEqual(deletedNestedElement);
     });
 
-    it.skip('should edit elem or child by id', () => {
-        //
+    it.skip('should edit elem by id', () => {
+        const newData = EditTreeService.EditElementById(initialData, updatedElem, 6);
+        expect(newData).toEqual(withUpdatedElement);
+    });
+
+    it.skip('should edit nested elem by id', () => {
+        const newData = EditTreeService.EditElementById(initialData, updatedElem, 3);
+        expect(newData).toEqual(withUpdatedNestedElement);
     });
 });
