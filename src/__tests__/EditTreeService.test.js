@@ -1,21 +1,44 @@
 import { EditTreeService, CreateMockedElement, FindElementById } from "../services";
-import { MockData } from "../mocks";
+import { MockData, MockWithDeletedElement, MockWithDeletedNestedElement } from "../mocks";
 
+// SO: collections
 const initialData = MockData;
-const newElem = CreateMockedElement(initialData);
-console.log(newElem);
+const withDeletedNestedElement = MockWithDeletedNestedElement;
+const withDeletedElement = MockWithDeletedElement;
+// SO: elems
+const newElem = {
+    id: 6,
+    name: "name-3",
+    surname: "surname-3",
+};
+const newNestedElem = {
+    id: 4,
+    name: "name-2",
+    surname: "surname-2",
+};
+
 describe('EditTree: ', () => {
-    it.skip('should add new elem or child', () => {
-        console.log(initialData);
+    it.skip('should add new elem', () => {
+        const newData = EditTreeService.AddNewElement(withDeletedElement, newElem);
+        expect(newData).toEqual(initialData);
     });
-    it.skip('should delete elem or child by id', () => {
+
+    it.skip('should add new elem in nested view', () => {
+        const newData = EditTreeService.AddNewElement(withDeletedNestedElement, newNestedElem, 1);
+        expect(newData).toEqual(initialData);
+    });
+    
+    it.skip('should delete elem by id', () => {
+        const newData = EditTreeService.DeleteElementById(6, initialData);
+        expect(newData).toEqual(deletedElement);
+    });
+
+    it.skip('should delete nested elem by id', () => {
+        const newData = EditTreeService.DeleteElementById(4, initialData);
+        expect(newData).toEqual(deletedNestedElement);
+    });
+
+    it.skip('should edit elem or child by id', () => {
         //
-    });
-    it('should edit elem or child by id', () => {
-        EditTreeService.EditElementById(1, initialData, newElem);
-        console.log(initialData);
-        const updatedElem = FindElementById(3, initialData);
-        console.log(updatedElem);
-        expect(updatedElem).toEqual(newElem);
     });
 });

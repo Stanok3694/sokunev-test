@@ -1,4 +1,4 @@
-const MockData = [
+const MockWithDeletedNestedElement = [
     {
         id: 1,
         name: "name-1",
@@ -15,12 +15,7 @@ const MockData = [
                         surname: "surname-1",
                     }
                 ]
-            },
-            {
-                id: 4,
-                name: "name-2",
-                surname: "surname-2",
-            },
+            }
         ]
     },
     {
@@ -35,4 +30,4 @@ const MockData = [
     }
 ];
 
-export default MockData;
+export default MockWithDeletedNestedElement;

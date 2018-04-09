@@ -1,4 +1,4 @@
-const MockData = [
+const MockWithDeletedElement = [
     {
         id: 1,
         name: "name-1",
@@ -27,12 +27,7 @@ const MockData = [
         id: 5,
         name: "name-2",
         surname: "surname-2"
-    },
-    {
-        id: 6,
-        name: "name-3",
-        surname: "surname-3",
     }
 ];
 
-export default MockData;
+export default MockWithDeletedElement;

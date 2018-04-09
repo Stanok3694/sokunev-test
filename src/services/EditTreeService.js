@@ -1,23 +1,26 @@
-import uuidv1 from "uuid";
-import { FindElementByIdWithCallback } from "./";
+import { FindElementById } from "./";
 
 class EditTree {
-    AddNewElement (treeElements) {
-        return 'hello, add';
+    AddNewElement(treeElements, newElem, id = null) {
+        if (id === null) {
+            return [...treeElements, newElem];
+        }
+
+
+        const parentElement = FindElementById(id, treeElements);
+
+        parentElement.subchilds
+            ? parentElement.subchilds = [...parentElement.subchilds, newElem] 
+            : parentElement.subchilds = [newElem];
+        
+        return treeElements;
     }
 
-    EditElementById (id, treeElements, updatedElem) {
-        FindElementByIdWithCallback(id, treeElements, function (target) {
-            console.log('target ' + target.name);
-            console.log('updatedElem ' + updatedElem.name);
-            target.name = updatedElem.name;
-            target.surname = updatedElem.surname;
-        });
-
-        console.log(treeElements);
+    EditElementById(treeElements, values, id) {
+        return 'hello, edit';
     }
 
-    DeleteElementById (id, treeElements) {
+    DeleteElementById(id, treeElements) {
         return 'hello, delete';
     }
 }
