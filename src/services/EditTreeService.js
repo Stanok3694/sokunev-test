@@ -24,11 +24,16 @@ class EditTree {
         return treeElements;
     }
 
-    // SO: this method is worst hack i have ever seen. Actually, this is fake delete.
     DeleteElementById(id, treeElements) {
-        let targetElement = FindElementById(id, treeElements);
-        targetElement.deleted = true;
-
+        for (let i = 0; i < treeElements.length; i++) {
+            if(treeElements[i].id === id) {
+                treeElements.splice(i, 1);
+                break;
+            } else if (treeElements[i].subchilds) {
+                this.DeleteElementById(id, treeElements[i].subchilds);
+            }
+        }
+        
         return treeElements;
     }
 }
