@@ -24,6 +24,7 @@ class EditTree {
         return treeElements;
     }
 
+    // SO: WOW! u just did it! no shame - u re great man. rly.
     DeleteElementById(id, treeElements) {
         for (let i = 0; i < treeElements.length; i++) {
             if(treeElements[i].id === id) {
