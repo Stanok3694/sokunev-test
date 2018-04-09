@@ -6,6 +6,10 @@ const Card = (props) => {
         <div className="card">
             <p>{props.name}</p>
             <p>{props.surname}</p>
+            <p>{`id = ${props.id}`}</p>
+            <button onClick = {props.handleClick.bind(this, props.id)}>
+                {'добавить'}
+            </button>
         </div>
     );
 };
