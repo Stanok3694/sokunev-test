@@ -9,14 +9,22 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    const data = this.getInitialDataFromLocalStorage();
+
     this.state = {
-      data: MockData,
+      data,
     };
+  }
+
+  getInitialDataFromLocalStorage = () => {
+    const getDataFromLocalStorage = localStorage.getItem('data');
+    return getDataFromLocalStorage ? JSON.parse(getDataFromLocalStorage) : [];
   }
 
   handleAddClick = (id) => {
     const newElem = CreateMockedElement(this.state.data);
     const newTree = EditTreeService.AddNewElement(this.state.data, newElem, id);
+    localStorage.setItem('data', JSON.stringify(newTree));
     this.setState({ data: newTree });
   }
 
@@ -27,11 +35,13 @@ class App extends Component {
     };
 
     const newTree = EditTreeService.EditElementById(this.state.data, newElemValue, id);
+    localStorage.setItem('data', JSON.stringify(newTree));
     this.setState({ data: newTree });
   }
 
   handleDeleteClick = (id) => {
     const newTree = EditTreeService.DeleteElementById(id, this.state.data);
+    localStorage.setItem('data', JSON.stringify(newTree));
     this.setState({ data: newTree });
   }
 
