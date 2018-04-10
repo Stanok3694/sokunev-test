@@ -41,12 +41,12 @@ describe('EditTree: ', () => {
     
     it.skip('should delete elem by id', () => {
         const newData = EditTreeService.DeleteElementById(6, initialData);
-        expect(newData).toEqual(deletedElement);
+        expect(newData).toEqual(withDeletedElement);
     });
 
     it.skip('should delete nested elem by id', () => {
         const newData = EditTreeService.DeleteElementById(4, initialData);
-        expect(newData).toEqual(deletedNestedElement);
+        expect(newData).toEqual(withDeletedNestedElement);
     });
 
     it.skip('should edit elem by id', () => {
