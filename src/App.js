@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uuidv1 from "uuid";
 import { HierarchyView } from "./views";
 import { MockData } from './mocks';
-import { EditTreeService, CreateMockedElement, FindElementById } from "./services";
+import { EditTreeService, CreateMockedElement } from "./services";
 import { CustomActionButtom } from "./components/UI";
 
 class App extends Component {
